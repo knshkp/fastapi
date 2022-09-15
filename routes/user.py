@@ -7,7 +7,7 @@ user = APIRouter()
 
 @user.get('/')
 async def find_all_users():
-    return serializeList(conn.locals.user.find())
+    return serializeList(conn.local.user.find())
 
 # @user.get('/{id}')
 # async def find_one_user(id):
@@ -15,16 +15,16 @@ async def find_all_users():
 
 @user.post('/')
 async def create_user(user: User):
-    conn.locals.user.insert_one(dict(user))
-    return serializeList(conn.locals.user.find())
+    conn.local.user.insert_one(dict(user))
+    return serializeList(conn.local.user.find())
 
 @user.put('/{id}')
 async def update_user(id,user: User):
-    conn.locals.user.find_one_and_update({"_id":ObjectId(id)},{
+    conn.local.user.find_one_and_update({"_id":ObjectId(id)},{
         "$set":dict(user)
     })
-    return serializeDict(conn.locals.user.find_one({"_id":ObjectId(id)}))
+    return serializeDict(conn.local.user.find_one({"_id":ObjectId(id)}))
 
 @user.delete('/{id}')
 async def delete_user(id,user: User):
-    return serializeDict(conn.locals.user.find_one_and_delete({"_id":ObjectId(id)}))
+    return serializeDict(conn.local.user.find_one_and_delete({"_id":ObjectId(id)}))

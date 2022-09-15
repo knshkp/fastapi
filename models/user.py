@@ -4,3 +4,4 @@ class User(BaseModel):
     email:str
     password:str
     phone:int
+
