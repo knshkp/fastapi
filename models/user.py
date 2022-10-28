@@ -4,4 +4,10 @@ class User(BaseModel):
     email:str
     password:str
     phone:int
+    IsActive:bool
+    Aadhar:int
+    Pan:str
+    GstNo:str
+    isValidate:bool
+
 

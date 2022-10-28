@@ -4,7 +4,13 @@ def userEntity(item) -> dict:
         "phone":item["phone"],
         "name":item["name"],
         "email":item["email"],
-        "password":item["password"]
+        "password":item["password"],
+        "IsActive":item["isActive"],
+        "Aadhar":item["AAdhar"],
+        "Pan":item["Pan"],
+        "GstNo":item["GstNo"],
+        "isValidate":item["IsValidate"]
+
     }
 def usersEntity(entity) -> list:
     return [userEntity(item) for item in entity]
